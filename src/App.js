@@ -1,27 +1,21 @@
-import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
+import { Route, Switch } from "react-router-dom";
+import Home from "./components/Home/Home";
+import Level from "./components/Level/Level";
+import Quiz from "./components/Quiz/Quiz";
+// import { useState, useEffect } from "react";
+// import axios from "axios";
 
-function App() {
+const App = (props) => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>HELLO</p>
-        <p>HELLO 2</p>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/level" component={Level} />
+        <Route path="/quiz" coomponent={Quiz} />
+      </Switch>
     </div>
   );
-}
+};
 
 export default App;
