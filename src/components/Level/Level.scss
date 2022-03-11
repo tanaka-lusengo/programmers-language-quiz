@@ -48,17 +48,21 @@
       }
       .level__button--color1:hover {
         background-color: $color-blue;
+        transition: 0.3s;
         font-weight: 700;
         &:active {
           background-color: $color-black;
+          transition: 0.3s;
           color: $color-blue;
         }
       }
       .level__button--color2:hover {
         background-color: $color-purple;
+        transition: 0.3s;
         font-weight: 700;
         &:active {
           background-color: $color-black;
+          transition: 0.3s;
           color: $color-purple;
         }
       }
