@@ -12,7 +12,8 @@ const App = (props) => {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/level" component={Level} />
-        <Route path="/quiz" coomponent={Quiz} />
+        <Route path="/quiz/easy" component={Quiz} />
+        <Route path="/quiz/hard" component={Quiz} />
       </Switch>
     </div>
   );
