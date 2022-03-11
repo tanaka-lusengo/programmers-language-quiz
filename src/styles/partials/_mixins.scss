@@ -1,0 +1,109 @@
+@use "./colors" as *;
+
+@mixin flex($justify, $align) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin background {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+@mixin text-styles($size, $weight, $height) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+}
+
+@mixin button() {
+  background-color: $color-black;
+  border-radius: 2rem;
+  border-style: none;
+  color: $color-white;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0;
+  width: 100%;
+  min-height: 2.5rem;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transition-property: transform, box-shadow;
+  transition-duration: 0.6s;
+
+  &:hover {
+    background-color: $color-green;
+    font-weight: 700;
+  }
+}
+
+@mixin button2() {
+  background-color: $color-black;
+  border-radius: 2rem;
+  border-style: none;
+  color: $color-white;
+  overflow: hidden;
+  cursor: pointer;
+  margin: 0;
+  width: 100%;
+  min-height: 2.5rem;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  transition-property: transform, box-shadow;
+  transition-duration: 0.6s;
+}
+
+@mixin input-field() {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  border: 0.063rem solid $color-mercury;
+  @include placeholder-color($color-black, $color-black);
+
+  &:focus {
+    outline: 0.125rem solid $color-blue;
+  }
+}
+
+@mixin placeholder-color($color, $focus) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    &:focus {
+      &::-webkit-input-placeholder {
+        color: $focus;
+      }
+    }
+  }
+  &:-moz-placeholder {
+    color: $color;
+    opacity: 1;
+    &:focus {
+      &:-moz-placeholder {
+        color: $focus;
+        opacity: 1;
+      }
+    }
+  }
+  &::-moz-placeholder {
+    color: $color;
+    opacity: 1;
+    &:focus {
+      &::-moz-placeholder {
+        color: $focus;
+        opacity: 1;
+      }
+    }
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    &:focus {
+      &:-ms-input-placeholder {
+        color: $focus;
+      }
+    }
+  }
+}
