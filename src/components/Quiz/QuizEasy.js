@@ -1,6 +1,5 @@
 import "./Quiz.scss";
 import Header from "../Header/Header";
-import circle from "../../assets/images/circle.svg";
 import { GET_API_TRANSLATION } from "../../api/endpoints";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -54,6 +53,7 @@ const QuizEasy = (props) => {
       setQuestionTranslated4(response4.data.contents.translated);
       setQuestionTranslated5(response5.data.contents.translated);
       setLanguageTranslated(response1.data.contents.translation);
+      console.log(response1.data.contents.translated);
     };
     translateQuestions();
   }, []);
@@ -166,6 +166,23 @@ const QuizEasy = (props) => {
     }
   };
 
+  const shuffle = (array) => {
+    let currentIndex = array.length,
+      randomIndex;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
+  };
+
   return (
     <div>
       <Header />
@@ -184,36 +201,38 @@ const QuizEasy = (props) => {
               </div>
             </div>
             <div className="question-card__wrapper-content">
-              <img src={questions[currentQuestion].memes} alt="" />
+              <div className="meme-wrapper">
+                <img
+                  className="meme"
+                  src={questions[currentQuestion].memes}
+                  alt="meme"
+                />
+              </div>
               <div className="card__text">
                 {questions[currentQuestion].questionText}
               </div>
               <div className="card__answer">
-                {questions[currentQuestion].answerOptions.map(
+                {shuffle(questions[currentQuestion].answerOptions).map(
                   (answerOption) => (
                     <div className="button-wrapper">
                       <button
-                        className="card__button answer__button--color answer__button--correct"
+                        className="card__button answer__button--color
+                            answer__button--correct"
                         key={Math.random()}
                         onClick={() =>
                           handleAnswerOptionClick(answerOption.isCorrect)
                         }
                       >
-                        <img
-                          className="circle"
-                          src={circle}
-                          alt="circle"
-                          key={Math.random()}
-                        />
                         <span className="answer">
-                          {" "}
-                          {answerOption.answerText}{" "}
+                          {answerOption.answerText}
                         </span>
                       </button>
                     </div>
                   )
                 )}
-                <p>Translation: {questions[currentQuestion].translated}!</p>
+                <h3 className="card__text">
+                  Translation: {questions[currentQuestion].translated}!
+                </h3>
               </div>
             </div>
           </article>
