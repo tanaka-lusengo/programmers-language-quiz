@@ -27,26 +27,17 @@ const QuizEasy = (props) => {
 
   useEffect(() => {
     const translateQuestions = async () => {
-      const response1 = await getTranslationEasy(
-        "oldenglish",
-        questionTranslated1
-      );
+      const response1 = await getTranslationEasy("yoda", questionTranslated1);
       const response2 = await getTranslationEasy(
-        "oldenglish",
+        "shakespeare",
         questionTranslated2
       );
-      const response3 = await getTranslationEasy(
-        "oldenglish",
-        questionTranslated3
-      );
+      const response3 = await getTranslationEasy("chef", questionTranslated3);
       const response4 = await getTranslationEasy(
-        "oldenglish",
+        "dothraki",
         questionTranslated4
       );
-      const response5 = await getTranslationEasy(
-        "oldenglish",
-        questionTranslated5
-      );
+      const response5 = await getTranslationEasy("yoda", questionTranslated5);
       setQuestionTranslated1(response1.data.contents.translated);
       setQuestionTranslated2(response2.data.contents.translated);
       setQuestionTranslated3(response3.data.contents.translated);

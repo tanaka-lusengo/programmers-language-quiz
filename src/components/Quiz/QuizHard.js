@@ -28,10 +28,10 @@ const QuizHard = (props) => {
 
   useEffect(() => {
     const translateQuestions = async () => {
-      const response1 = await getTranslationHard("groot", questionTranslated1);
-      const response2 = await getTranslationHard("groot", questionTranslated2);
-      const response3 = await getTranslationHard("groot", questionTranslated3);
-      const response4 = await getTranslationHard("groot", questionTranslated4);
+      const response1 = await getTranslationHard("hodor", questionTranslated1);
+      const response2 = await getTranslationHard("wow", questionTranslated2);
+      const response3 = await getTranslationHard("pirate", questionTranslated3);
+      const response4 = await getTranslationHard("minion", questionTranslated4);
       const response5 = await getTranslationHard("groot", questionTranslated5);
       setQuestionTranslated1(response1.data.contents.translated);
       setQuestionTranslated2(response2.data.contents.translated);
