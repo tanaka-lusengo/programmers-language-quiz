@@ -48,16 +48,19 @@
     }
   }
 
-  &__button {
-    @include button;
+  .button-wrapper {
     width: 35%;
-    font-weight: 400;
-    letter-spacing: 0.25rem;
-    font-size: 1rem;
+    .home__button {
+      @include button;
+      width: 100%;
+      font-weight: 400;
+      letter-spacing: 0.25rem;
+      font-size: 1rem;
 
-    &:active {
-      background-color: $color-black;
-      color: $color-green;
+      &:active {
+        background-color: $color-black;
+        color: $color-green;
+      }
     }
   }
 }

@@ -13,11 +13,13 @@ const Home = (props) => {
       <div className="home__logo">
         <img className="logo" alt="Quiz logo" src={Logo} />
       </div>
-      <Link className="home__button" to="/level">
-        <button className="home__button" type="submit">
-          START QUIZ
-        </button>
-      </Link>
+      <div className="button-wrapper">
+        <Link className="home__button" to="/level">
+          <button className="home__button" type="submit">
+            START QUIZ
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
