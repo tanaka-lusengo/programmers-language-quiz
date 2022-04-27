@@ -1,0 +1,21 @@
+@use "../../styles/partials/" as *;
+
+.header {
+  background-color: $color-black;
+
+  &__logo {
+    margin: 0 auto;
+    width: 2rem;
+    height: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    .logo {
+      transition: transform 0.2s ease-in;
+
+      &:hover {
+        transform: rotate(20deg);
+        z-index: -1;
+      }
+    }
+  }
+}
