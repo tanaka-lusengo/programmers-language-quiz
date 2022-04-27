@@ -1,8 +1,9 @@
 import "./Level.scss";
 import { Link } from "react-router-dom";
 import Header from "../Header/Header";
+import React from "react";
 
-const Level = (props) => {
+function Level() {
   return (
     <div>
       <Header />
@@ -39,5 +40,6 @@ const Level = (props) => {
       </div>
     </div>
   );
-};
+}
+
 export default Level;

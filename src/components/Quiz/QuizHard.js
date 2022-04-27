@@ -1,14 +1,13 @@
+import React from "react";
 import "./Quiz.scss";
-// import { Link } from "react-router-dom";
 import Header from "../Header/Header";
-// import circleEasy from "../../assets/images/blue-circle.svg";
-// import circleHard from "../../assets/images/purple-circle.svg";
-import circle from "../../assets/images/circle.svg";
+import { v4 as uuidv4 } from "uuid";
 import { GET_API_TRANSLATION } from "../../api/endpoints";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const QuizHard = (props) => {
+function QuizHard() {
+  // Hook states for questions and translations
   const [questionTranslated1, setQuestionTranslated1] = useState(
     "What does API stand for?"
   );
@@ -24,24 +23,40 @@ const QuizHard = (props) => {
   const [questionTranslated5, setQuestionTranslated5] = useState(
     "Which method will convert a Javascript Object into JSON?"
   );
-  const [languageTranslated, setLanguageTranslated] = useState("");
+  const [languageTranslated1, setLanguageTranslated1] = useState("");
+  const [languageTranslated2, setLanguageTranslated2] = useState("");
+  const [languageTranslated3, setLanguageTranslated3] = useState("");
+  const [languageTranslated4, setLanguageTranslated4] = useState("");
+  const [languageTranslated5, setLanguageTranslated5] = useState("");
 
   const getTranslationHard = (language, question) =>
     axios.get(GET_API_TRANSLATION(language, question));
 
   useEffect(() => {
     const translateQuestions = async () => {
-      const response1 = await getTranslationHard("groot", questionTranslated1);
-      const response2 = await getTranslationHard("groot", questionTranslated2);
-      const response3 = await getTranslationHard("groot", questionTranslated3);
-      const response4 = await getTranslationHard("groot", questionTranslated4);
+      const response1 = await getTranslationHard("hodor", questionTranslated1);
+      const response2 = await getTranslationHard(
+        "wheel-of-time-old-tongue",
+        questionTranslated2
+      );
+      const response3 = await getTranslationHard(
+        "valyrian",
+        questionTranslated3
+      );
+      const response4 = await getTranslationHard("minion", questionTranslated4);
       const response5 = await getTranslationHard("groot", questionTranslated5);
+      // set question translation
       setQuestionTranslated1(response1.data.contents.translated);
       setQuestionTranslated2(response2.data.contents.translated);
       setQuestionTranslated3(response3.data.contents.translated);
       setQuestionTranslated4(response4.data.contents.translated);
       setQuestionTranslated5(response5.data.contents.translated);
-      setLanguageTranslated(response1.data.contents.translation);
+      // set title translation
+      setLanguageTranslated1(response1.data.contents.translation);
+      setLanguageTranslated2(response2.data.contents.translation);
+      setLanguageTranslated3(response3.data.contents.translation);
+      setLanguageTranslated4(response4.data.contents.translation);
+      setLanguageTranslated5(response5.data.contents.translation);
     };
     translateQuestions();
   }, []);
@@ -57,7 +72,7 @@ const QuizHard = (props) => {
         { answerText: "Application Programming Interface", isCorrect: true },
         { answerText: "Asynchronous Programming Iteration", isCorrect: false },
       ],
-      translated: languageTranslated,
+      translated: languageTranslated1,
     },
     {
       memes:
@@ -83,7 +98,7 @@ const QuizHard = (props) => {
           isCorrect: false,
         },
       ],
-      translated: languageTranslated,
+      translated: languageTranslated2,
     },
     {
       memes:
@@ -95,7 +110,7 @@ const QuizHard = (props) => {
         { answerText: "JSON.convert()", isCorrect: false },
         { answerText: "JSON.toString()", isCorrect: false },
       ],
-      translated: languageTranslated,
+      translated: languageTranslated3,
     },
     {
       memes: "https://miro.medium.com/max/600/0*T9Cp1i9aEB9kvUYL.png",
@@ -122,7 +137,7 @@ const QuizHard = (props) => {
           isCorrect: true,
         },
       ],
-      translated: languageTranslated,
+      translated: languageTranslated4,
     },
     {
       memes: "https://miro.medium.com/max/600/0*tpkuBHy0PHPy7k3Q.png",
@@ -133,14 +148,16 @@ const QuizHard = (props) => {
         { answerText: "JSON.parse()", isCorrect: false },
         { answerText: "JSON.stringify()", isCorrect: true },
       ],
-      translated: languageTranslated,
+      translated: languageTranslated5,
     },
   ];
 
+  // hook states for question quiz flow
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
 
+  // function handling when answer is clicked
   const handleAnswerOptionClick = (isCorrect) => {
     if (isCorrect) {
       setScore(score + 1);
@@ -152,6 +169,23 @@ const QuizHard = (props) => {
     } else {
       setShowScore(true);
     }
+  };
+
+  const shuffle = (array) => {
+    let currentIndex = array.length,
+      randomIndex;
+
+    while (currentIndex !== 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex],
+        array[currentIndex],
+      ];
+    }
+
+    return array;
   };
 
   return (
@@ -172,31 +206,37 @@ const QuizHard = (props) => {
               </div>
             </div>
             <div className="question-card__wrapper-content">
-              <img src={questions[currentQuestion].memes} alt="" />
+              <div className="meme-wrapper">
+                <img
+                  className="meme"
+                  src={questions[currentQuestion].memes}
+                  alt="meme"
+                />
+              </div>
+              <h3 className="card__text">
+                Translation into: {questions[currentQuestion].translated}!
+              </h3>
               <div className="card__text">
                 {questions[currentQuestion].questionText}
               </div>
               <div className="card__answer">
-                {questions[currentQuestion].answerOptions.map(
+                {shuffle(questions[currentQuestion].answerOptions).map(
                   (answerOption) => (
-                    <div className="button-wrapper">
+                    <div key={uuidv4()} className="button-wrapper">
                       <button
-                        className="card__button answer__button--color answer__button--correct"
-                        key={Math.random()}
+                        className="card__button answer__button--color                          
+                          answer__button--correct"
                         onClick={() =>
                           handleAnswerOptionClick(answerOption.isCorrect)
                         }
                       >
-                        <img className="circle" src={circle} alt="circle" />
                         <span className="answer">
-                          {" "}
-                          {answerOption.answerText}{" "}
+                          {answerOption.answerText}
                         </span>
                       </button>
                     </div>
                   )
                 )}
-                <p>Translation: {questions[currentQuestion].translated}!</p>
               </div>
             </div>
           </article>
@@ -204,39 +244,6 @@ const QuizHard = (props) => {
       )}
     </div>
   );
-};
-export default QuizHard;
+}
 
-//   return (
-//     <div className="app">
-//       {showScore ? (
-//         <div className="score-section">
-//           You scored {score} out of {questions.length}
-//         </div>
-//       ) : (
-//         <>
-//           <div className="question-section">
-//             <div className="question-count">
-//               {/* <span>Question {currentQuestion + 1}</span>/{questions.length} */}
-//             </div>
-//             {/* <img src={questions[currentQuestion].memes} alt="" /> */}
-//             <div className="question-text">
-//               {/* {questions[currentQuestion].questionText} */}
-//             </div>
-//           </div>
-//           <div className="answer-section">
-//             {questions[currentQuestion].answerOptions.map((answerOption) => (
-//               <button
-//               //   key={Math.random()}
-//               //   onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}
-//                >
-//                 // {answerOption.answerText}
-//               </button>
-//             ))}
-//           </div>
-//           <div>Translation: {questions[currentQuestion].translated}!</div>
-//         </>
-//       )}
-//     </div>
-//   );
-// }
+export default QuizHard;
