@@ -1,8 +1,9 @@
 import "./Header.scss";
 import Logo from "../../assets/images/quiz.svg";
 import { Link } from "react-router-dom";
+import React from "react";
 
-const Header = (props) => {
+function Header() {
   return (
     <div className="header">
       <Link to="/">
@@ -12,5 +13,6 @@ const Header = (props) => {
       </Link>
     </div>
   );
-};
+}
+
 export default Header;
