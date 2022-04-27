@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import React from "react";
 import "./Quiz.scss";
 import { v4 as uuidv4 } from "uuid";
+import { handlePageScroll } from "../../utils/utilities";
 import { GET_API_TRANSLATION } from "../../api/endpoints";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -176,6 +177,8 @@ function QuizEasy() {
     } else {
       setShowScore(true);
     }
+
+    handlePageScroll();
   };
 
   const shuffle = (array) => {
