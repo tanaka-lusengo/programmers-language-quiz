@@ -32,4 +32,4 @@ npm start
 
 ## Contact
 - Tanaka Lusengo - tc.lusengo@gmail.com
-- Project Link: git@github.com:tanaka-lusengo/pair-hackaton-language-quiz.git
+- Project Github Link: https://github.com/tanaka-lusengo/programmers-language-quiz
