@@ -1,6 +1,6 @@
 import "./App.scss";
 import { Route, Switch } from "react-router-dom";
-import Home from "./components/Home/Home";
+import Home from "./pages/Home/Home";
 import Level from "./components/Level/Level";
 import QuizEasy from "./components/Quiz/QuizEasy";
 import QuizHard from "./components/Quiz/QuizHard";

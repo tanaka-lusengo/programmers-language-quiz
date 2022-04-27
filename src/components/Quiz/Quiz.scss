@@ -65,6 +65,7 @@
           height: auto;
         }
       }
+
       .card__text {
         color: $color-black;
         font-size: 1rem;
@@ -89,6 +90,7 @@
           padding: 0.75rem;
           @include button2();
           margin: 0 0 1.5rem;
+
           .circle {
             height: 1rem;
             width: auto;
