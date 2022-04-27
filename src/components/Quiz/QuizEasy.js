@@ -28,6 +28,7 @@ function QuizEasy() {
   const [languageTranslated2, setLanguageTranslated2] = useState("");
   const [languageTranslated3, setLanguageTranslated3] = useState("");
   const [languageTranslated4, setLanguageTranslated4] = useState("");
+  const [languageTranslated5, setLanguageTranslated5] = useState("");
 
   // function to call api for translation
   const getTranslationEasy = (language, question) =>
@@ -61,6 +62,7 @@ function QuizEasy() {
       setLanguageTranslated2(response2.data.contents.translation);
       setLanguageTranslated3(response3.data.contents.translation);
       setLanguageTranslated4(response4.data.contents.translation);
+      setLanguageTranslated5(response5.data.contents.translation);
     };
     translateQuestions();
   }, []);
@@ -153,7 +155,7 @@ function QuizEasy() {
         { answerText: "JSON.parse()", isCorrect: false },
         { answerText: "JSON.stringify()", isCorrect: true },
       ],
-      translated: languageTranslated1,
+      translated: languageTranslated5,
     },
   ];
 
