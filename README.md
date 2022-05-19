@@ -4,7 +4,7 @@ Pair Programming - 24hr Hackathon Project. A fun quiz for programmers to test th
 
 - Deployed site can be found here: https://programmers-language-quiz.herokuapp.com/ 
 
-In Collaboration with: Ariadnne Díaz: https://github.com/AriadnneD
+- In collaboration with: Ariadnne Díaz: https://github.com/AriadnneD
 
 ## Table of Content:
 - About The App
@@ -35,6 +35,5 @@ npm start
 ```
 
 ## Contact
-- Tanaka Lusengo - tc.lusengo@gmail.com
+- Tanaka Lusengo - tc.lusengo@gmail.com | https://www.linkedin.com/in/tanakalusengo/
 - Project Live Link: https://programmers-language-quiz.herokuapp.com/
-- Project Github Link: https://github.com/tanaka-lusengo/programmers-language-quiz
