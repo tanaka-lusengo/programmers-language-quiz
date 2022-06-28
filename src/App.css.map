@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles/partials/_resets.scss","styles/partials/_colors.scss","App.css","App.scss"],"names":[],"mappings":"AAEA;;EAEE,sBAAA;EACA,aAAA;EACA,uDAAA;EACA,cCLY;ACId;;AFIA;;;EAGE,mBAAA;EACA,SAAA;EACA,UAAA;EACA,uDAAA;EACA,cCfY;ACcd;;AFIA;EACE,gBAAA;AEDF;;AFGA;EACE,qBAAA;EACA,cCzBY;ACyBd;;ACvBA;EACE,yBFFiB;AC4BnB","file":"App.css"}
