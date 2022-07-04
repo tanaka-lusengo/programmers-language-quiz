@@ -2,7 +2,7 @@
 
 Pair Programming - 24hr Hackathon Project. A fun quiz for programmers to test their JavaScript knowledge with a twist!
 
-- Deployed site can be found here: https://programmers-language-quiz.herokuapp.com/ 
+- Deployed site can be found here: https://programmers-language-quiz.vercel.app/
 
 - In collaboration with: Ariadnne Díaz: https://github.com/AriadnneD
 
